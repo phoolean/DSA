@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms
-Data structures and algorithms practice in C.
+Data structures and algorithms practice in C programming language.
