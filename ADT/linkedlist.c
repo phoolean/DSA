@@ -76,7 +76,7 @@ void Delete(int x, list l) {
 
 }
 
-void Insert(int x, list l, position p) {
+void Insert(int x, list l, position p) {  // Insert in the place after p
     position tempCell;
     tempCell = malloc(sizeof(struct node));
 
