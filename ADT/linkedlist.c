@@ -29,7 +29,11 @@ struct node{
 };
 
 list MakeEmpty(list l){
-    l->next = NULL;
+    if (l->next != NULL) {
+        MakeEmpty(l->next);
+        free(l->next);
+        l->next = NULL;
+    }
     return l;
 }
 
