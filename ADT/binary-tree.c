@@ -1,6 +1,8 @@
 #include "stdlib.h"
+#include "stdio.h"
 
 #ifndef _binarytree_h
+
 struct treeNode;
 typedef struct treeNode *binaryTree;
 typedef struct treeNode *position;
@@ -11,6 +13,10 @@ position FindMin(binaryTree t);
 position FindMax(binaryTree t);
 binaryTree Insert(int x, binaryTree t);
 binaryTree Delete(int x, binaryTree t);
+//Next three interation traversal routines
+void preOrderTraversal(binaryTree t);
+void inOrderTraversal(binaryTree t);
+void pastOrderTraversal(binaryTree t);
 
 #endif
 
@@ -66,11 +72,11 @@ binaryTree Insert(int x, binaryTree t){
     //此过程中，仅插入的叶节点被挂载在子树位置，原树结构未改变
     return t;
 }
-
 binaryTree Delete(int x, binaryTree t){
     position temp;
 
-    if (t == NULL ) return NULL;
+    if (t == NULL) return NULL;
+    else
     if (t->element > x) t->left = Delete(x, t->left);
     else
     if (t->element < x) t->right = Delete(x, t->right);
