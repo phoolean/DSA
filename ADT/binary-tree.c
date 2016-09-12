@@ -72,6 +72,7 @@ binaryTree Insert(int x, binaryTree t){
     //此过程中，仅插入的叶节点被挂载在子树位置，原树结构未改变
     return t;
 }
+
 binaryTree Delete(int x, binaryTree t){
     position temp;
 
