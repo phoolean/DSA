@@ -76,7 +76,6 @@ binaryTree Delete(int x, binaryTree t){
     position temp;
 
     if (t == NULL) return NULL;
-    else
     if (t->element > x) t->left = Delete(x, t->left);
     else
     if (t->element < x) t->right = Delete(x, t->right);
