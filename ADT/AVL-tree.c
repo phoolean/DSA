@@ -74,7 +74,46 @@ avltree Insert(int x, avltree t){
     return t;
 }
 
-avltree Delete(int x, avltree t){}
+avltree Delete(int x, avltree t){
+    position temp;
+
+    if (t == NULL) return NULL;
+    if (x < t->element){
+        t->left = Delete(x, t->left);
+    }
+    else
+    if (x > t->element){
+        t->right = Delete(x, t->right);
+    }
+    else
+    if (t->left && t->right) {
+        temp = FindMin(t->right);
+        t->element = temp->element;
+        t->right = Delete(t->element, t->right);
+    }
+    else{
+        temp = t;
+        if (t->left == NULL) t = t->right;
+        else
+        if (t->right == NULL) t = t->left;
+        free(temp);
+    }
+
+    if (t){
+        if (Height(t->left) - Height(t->right) == 2) {
+            if (Height(t->left->left) >= Height(t->left->right)) t = LL(t);
+            else t = LR(t);
+        }
+        if (Height(t->right) - Height(t->left) == 2) {
+            if (Height(t->right->right) >= Height(t->right->left)) t = RR(t);
+            else t = RL(t);
+        }
+        t->height = Max(Height(t->left), Height(t->right)) + 1;
+    }
+
+    return t;
+
+}
 
 avltree LL(avltree t){
     position tempCell;
