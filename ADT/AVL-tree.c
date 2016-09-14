@@ -46,6 +46,36 @@ int Max(int a, int b){
     return (a > b)? a : b;
 }
 
+position Find(int x, avltree t){
+    while (t) {
+        if (t->element > x) t = t->left;
+        else
+        if (t->element < x) t = t->right;
+        else break;
+    }
+
+    return t;
+
+}
+
+position FindMin(avltree t){
+    position temp = t;
+    while (t) {
+        temp = t;
+        t = t->left;
+    }
+    return temp;
+}
+
+position FindMax(avltree t){
+    position temp = t;
+    while (t) {
+        temp = t;
+        t = t->right;
+    }
+    return temp;
+}
+
 avltree Insert(int x, avltree t){
     if (t == NULL) {
         t = malloc(sizeof(struct treeNode));
